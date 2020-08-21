@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Windows 10 2004 不能访问共享文件夹</title>
+      <link href="/2020/08/21/system/01win10sharefolder/"/>
+      <url>/2020/08/21/system/01win10sharefolder/</url>
+      
+        <content type="html"><![CDATA[<p>最近入职新公司，新装电脑，系统为Windows 10 2004，但是出现一个问题，访问共享文件夹时候提示错误 ：</p><blockquote><p>你不能访问此共享文件夹，因为你组织的安全策略组织未经身份验证的来宾访问。<br>这些策略可帮助保护你的电脑免受网络上不安全设备或恶意设备的威胁。</p></blockquote><p>网上搜索，结果很多，但是点开全是一样的：</p><blockquote><p>组策略-计算机配置-管理模板-网络-Lanman工作站-启用不安全的来宾登录 </p></blockquote><p>结果，反复横跳一样的禁用-启用-禁用-启用，都没反应，当时就暂时放弃了，暂时使用虚拟机（Windows 10 1909）访问。</p><p>最近工作基本熟悉，想起这个蛋疼的问题，搜索查找半天，终于解决，没有别的活跃的博客，就先记在这里了，解决方案：</p><blockquote><p>修改以下注册表后，可以访问<br>HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters<br>AllowInsecureGuestAuth = 1</p></blockquote><p>最后吐槽一下，国内的搜索（百度中文，谷歌中文搜索）结果真是一言难尽，搜一个问题，要不就是第一条结果就能解决，要不就永远搜不到解决方案，因为各种抄，各种垃圾爬虫网站，几页的结果全是一个。<br>这应该是2004的一个bug，不确定出现几率，已经提交反馈。</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
